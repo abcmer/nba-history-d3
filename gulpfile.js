@@ -114,12 +114,12 @@ var cleanDist = function (done) {
 var jsTasks = lazypipe()
 	.pipe(header, banner.main, {package: package})
 	.pipe(optimizejs)
-	.pipe(dest, paths.scripts.output)
+	.pipe(dest, 'dist/js')
 	.pipe(rename, {suffix: '.min'})
 	.pipe(uglify)
 	.pipe(optimizejs)
 	.pipe(header, banner.main, {package: package})
-	.pipe(dest, paths.scripts.output);
+	.pipe(dest, 'dist/js');
 
 // Lint, minify, and concatenate scripts
 var buildScripts = function (done) {
@@ -145,7 +145,7 @@ var buildScripts = function (done) {
 
 					// Grab files that aren't polyfills, concatenate them, and process them
 					src([file.path + '/*.js', '!' + file.path + '/*' + paths.scripts.polyfills])
-						.pipe(concat(file.relative + '.js'))
+						.pipe(concat('all.js'))
 						.pipe(jsTasks());
 
 				}

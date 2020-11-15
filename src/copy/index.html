@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Copy Me</title>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<title>NBA History</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
+
 <body>
-	<h1>Copy Me</h1>
-
-	<p>Anything you put in the <code>copy</code> directory gets copied as-is into the <code>dist</code> directory.</p>
-
-	<p><button id="click-me">Click Me</button></p>
-
+  <div id="mainContainer">
+    <h1>History of NBA Championship Teams</h1>
+    <div id="container"></div>
+  </div>
+<body>
 	<!-- Scripts -->
-	<script src="js/detects.js"></script>
-	<script src="js/another-file.js"></script>
-	<script src="js/main.polyfills.js"></script>
+	<script src="js/all.js"></script>
+  <script>
+    function initialize() {
+      var viz = new Viz({width: 960, height: 540})
+    }
+    initialize()
+  </script>
 </body>
 </html>
