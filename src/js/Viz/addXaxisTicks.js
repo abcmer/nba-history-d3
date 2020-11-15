@@ -26,6 +26,5 @@ Viz.prototype.addXaxisTicks = (options) => {
       .attr('alignment-baseline', 'middle')
       .attr('y', 20)
       
-    console.log(i, titlesToPixels(i))
   }
 }

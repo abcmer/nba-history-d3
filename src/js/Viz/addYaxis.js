@@ -5,7 +5,7 @@ Viz.prototype.addYaxis = (options) => {
     .attr('x1', 0)
     .attr('y1', -5)
     .attr('x2', 0)
-    .attr('y2', -1 * (viz.height - 80))
+    .attr('y2', -1 * (viz.height - viz.graphMarginUp - viz.graphMarginDown))
     .style('stroke', 'black')
     .style('stroke-width', 2)
 }

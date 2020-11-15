@@ -2,10 +2,10 @@ function Viz(options) {
   const viz = this;
 
   const initialize = (options) => {
-    viz.defineSize(options)
+    viz.defineSvgSize(options)
     viz.defineGraphMargins()
     viz.addSvg()
-    viz.addBackgroundColor()
+    viz.addGraphBackground()
     viz.addLayers()  
     viz.addZeroCoordinate()
     viz.addXaxis()
