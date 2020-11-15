@@ -4,7 +4,7 @@ Viz.prototype.addXaxis = (options) => {
     .append('line')
     .attr('x1', 5)
     .attr('y1', 0)
-    .attr('x2', viz.width - 80)
+    .attr('x2', viz.width - viz.graphMarginRight - viz.graphMarginLeft)
     .attr('y2', 0)
     .style('stroke', 'black')
     .style('stroke-width', 2)
