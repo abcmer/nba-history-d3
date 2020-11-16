@@ -5,9 +5,10 @@ Viz.prototype.addBars = (data) => {
     let teamTitlesCount = data["2020"][team]
     viz.layers.yAxisTicks[i]
       .append('rect')
-      .attr('y', -4)
+      .attr('y', -6)
       .attr('width', viz.titlesToPixelsScale(teamTitlesCount))
-      .attr('height', 10)
-      .style('fill', 'black')      
+      .attr('height', 15)
+      .attr('rx', "3")
+      .style('fill', '#1D4289')         
   }
 }
