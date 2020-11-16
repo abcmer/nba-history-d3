@@ -1,14 +1,14 @@
 Viz.prototype.addXaxisTicks = (options) => {
   const viz = this;
-  const titlesToPixels = d3.scaleLinear()
-    .domain([0,17])
+  viz.titlesToPixelsScale = d3.scaleLinear()
+    .domain([0,18])
     .range([0,viz.width - viz.graphMarginRight - viz.graphMarginLeft])
 
-  for (i = 1; i <= 17; i++ ) {
+  for (i = 1; i <= 18; i++ ) {
     viz.layers.xAxisTicks[i] = viz.layers.axis
       .append('g')
       .attr('class', `xAxis${i}`)
-      .attr('transform', `translate(${titlesToPixels(i)}, 0)`)  
+      .attr('transform', `translate(${viz.titlesToPixelsScale(i)}, 0)`)  
       
     viz.layers.xAxisTicks[i]
       .append('line')

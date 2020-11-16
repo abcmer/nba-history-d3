@@ -1,6 +1,6 @@
-Viz.prototype.addYaxisTicks = (options) => {
+Viz.prototype.addYaxisTicks = () => {
   const viz = this;
-  const teams = ['Lakers', 'Celtics', 'Warriors', 'Bulls', 'Spurs', '76ers', 'Pistons', 'Heat', 'Knicks', 'Rockets', 'Caveliers', 'Hawks', 'Bullets', 'SuperSonics', 'Trail Blazers', 'Bucks', 'Mavericks', 'Royals', 'Raptors']
+  const teams = viz.teams
   const teamIndexToPixels = d3.scaleLinear()
     .domain([0,teams.length])
     .range([0,viz.height - viz.graphMarginUp - viz.graphMarginDown - 10])
@@ -15,7 +15,7 @@ Viz.prototype.addYaxisTicks = (options) => {
       .append('text')
       .text(teams[i])
       .attr('text-anchor', 'end')
-      .attr('alignment-baseline', 'middle')
+      .attr('dominant-baseline', 'middle')
       .attr('x', -5)      
   }
 }

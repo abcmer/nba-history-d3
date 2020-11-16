@@ -9,6 +9,7 @@ var settings = {
 	polyfills: true,
 	styles: true,
 	svgs: true,
+	data: true,
 	copy: true,
 	reload: true
 };
@@ -37,6 +38,10 @@ var paths = {
 	copy: {
 		input: 'src/copy/**/*',
 		output: 'dist/'
+	},
+	data: {
+		input: 'src/data/*.json',
+		output: 'dist/data/'
 	},
 	reload: './dist/'
 };
@@ -225,6 +230,17 @@ var buildSVGs = function (done) {
 
 };
 
+// Optimize SVG files
+var buildData = function (done) {
+
+	// Make sure this feature is activated before running
+	if (!settings.data) return done();
+
+	// Optimize SVG files
+	return src(paths.data.input)
+		.pipe(dest(paths.data.output));
+};
+
 // Copy static files into output folder
 var copyFiles = function (done) {
 
@@ -282,6 +298,7 @@ exports.default = series(
 		lintScripts,
 		buildStyles,
 		buildSVGs,
+		buildData,
 		copyFiles
 	)
 );
