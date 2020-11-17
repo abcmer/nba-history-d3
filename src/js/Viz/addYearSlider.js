@@ -1,4 +1,4 @@
-Viz.prototype.addYearSlider = () => {
+Viz.prototype.addYearSlider = (options) => {
   let viz = this;
   
   viz.layers.yearSlider
@@ -16,18 +16,16 @@ Viz.prototype.addYearSlider = () => {
     
   viz.layers.yearSlider
     .append('text')
-    .text('2020')
+    .text(new Date().getFullYear())
     .attr('x', viz.width - viz.chartMarginRight - viz.chartMarginLeft)
     .attr('text-anchor', 'middle')
     .attr('alignment-baseline', 'middle')      
     
   viz.layers.yearSlider
     .append('circle')
-    .attr("cx", viz.width - viz.chartMarginRight - viz.chartMarginLeft - 35 )
+    .attr("cx", viz.yearsToHorizontalPixelsScale(options.year))
     .attr("r", 10)
     .style("fill", "white")
     .style("stroke-width", 3)
-    .style("stroke", "black")  
-    
-
+    .style("stroke", "black")    
 }
