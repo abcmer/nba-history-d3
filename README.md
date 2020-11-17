@@ -20,7 +20,11 @@ npm i
 
 Start dev server
 ```
-gulp watch
+npm start
+```
+Build
+```
+npm run build
 ```
 
 ## License

@@ -7,6 +7,10 @@
 		"name": "Adam Siemer",
 		"url": "https://abcmer.com"
 	},
+	"scripts": {
+		"start": "gulp watch",
+		"build": "gulp"
+	},
 	"license": "MIT",
 	"repository": {
 		"type": "git",
