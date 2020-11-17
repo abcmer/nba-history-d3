@@ -6,7 +6,7 @@ Viz.prototype.addBars = (data) => {
     .attr('y', '-.5rem')
     .attr('x', 1)
     .attr('width', viz.titlesToPixelsScale(t.yearsWon.length))
-    .attr('height', '1rem')
+    .attr('height', '12')
     .attr('rx', "3")
     .style('fill', '#1D4289')    
   })

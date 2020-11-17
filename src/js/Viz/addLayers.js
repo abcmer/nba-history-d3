@@ -15,7 +15,7 @@ Viz.prototype.addLayers = () => {
   })
   viz.layers.chartTitle = viz.Viz.prototype.addGroup({
     'class': 'chartTitle',
-    'xOffset': viz.width - viz.chartMarginRight - 280,
+    'xOffset': viz.width - viz.chartMarginRight - 440,
     'yOffset': viz.chartMarginUp + 30,    
   })
   return viz
