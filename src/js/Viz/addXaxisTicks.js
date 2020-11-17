@@ -1,10 +1,7 @@
 Viz.prototype.addXaxisTicks = (options) => {
   const viz = this;
-  viz.titlesToPixelsScale = d3.scaleLinear()
-    .domain([0,18])
-    .range([0,viz.width - viz.graphMarginRight - viz.graphMarginLeft])
-
-  for (i = 1; i <= 18; i++ ) {
+  const titlesMax = options.titlesMax;
+  for (i = 1; i <= titlesMax; i++ ) {
     viz.layers.xAxisTicks[i] = viz.layers.axis
       .append('g')
       .attr('class', `xAxis${i}`)

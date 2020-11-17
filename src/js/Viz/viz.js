@@ -2,21 +2,22 @@ function Viz(options) {
   const viz = this;
 
   const initialize = (options) => { 
-    const teams = ['Lakers', 'Celtics', 'Warriors', 'Bulls', 'Spurs', '76ers', 'Pistons', 'Heat', 'Knicks', 'Rockets', 'Caveliers', 'Hawks', 'Bullets', 'SuperSonics', 'Trail Blazers', 'Bucks', 'Mavericks', 'Royals', 'Raptors']
     d3.json("/data/teamData.json").then(function(data) {
       // viz.titleCountsData = data;
-      viz.year = 2008  
+      viz.year = 2006  
       data = viz.filterOnYear(data, viz.year)  
-      viz.setTeamsWithAtLeastOneTitle(data)  
+      data = viz.filterForTitleTeams(data)  
       viz.defineSvgSize(options)
       viz.defineGraphMargins()
       viz.addSvg()
       viz.addGraphBackground()
       viz.addLayers()
       viz.addZeroCoordinate()
+      viz.titlesMax = viz.setTitlesMax(data)
+      viz.createTitlesToPixelsScale({'titlesMax': viz.titlesMax})
       viz.addAxisLines()
-      viz.addXaxisTicks()
-      viz.addYaxisTicks(teams)
+      viz.addXaxisTicks({'titlesMax': viz.titlesMax})
+      viz.addYaxisTicks(data)
       viz.addYearSlider()  
       viz.addBars(data)     
     })   
