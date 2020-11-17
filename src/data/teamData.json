@@ -1,0 +1,138 @@
+[
+  {
+      "teamName": "Minneapolis/Los Angeles Lakers",
+      "shortName": "Lakers",
+      "yearsWon": ["1949", "1950", "1952", "1953", "1954", "1972", "1980", "1982", "1985", "1987", "1988", "2000", "2001", "2002", "2009", "2010", "2020"],
+      "yearsRunnerUp": ["1959", "1962", "1963", "1965", "1966", "1968", "1969", "1970", "1973", "1983", "1984", "1989", "1991", "2004", "2008"]
+  },{
+      "teamName": "Boston Celtics",
+      "shortName": "Celtics",
+      "yearsWon": ["1957", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1968", "1969", "1974", "1976", "1981", "1984", "1986", "2008"],
+      "yearsRunnerUp": ["1958", "1985", "1987", "2010"]
+  },{
+      "teamName": "Philadelphia/San Francisco/Golden State Warriors",
+      "shortName": "Warriors",
+      "yearsWon": ["1947", "1956", "1975", "2015", "2017", "2018"],
+      "yearsRunnerUp": ["1948", "1964", "1967", "2016", "2019"]
+  },{
+      "teamName": "Chicago Bulls",
+      "shortName": "Bulls",
+      "yearsWon": ["1991", "1992", "1993", "1996", "1997", "1998"],
+      "yearsRunnerUp": [""]
+  },{
+      "teamName": "San Antonio Spurs",
+      "shortName": "Spurs",
+      "yearsWon": ["1999", "2003", "2005", "2007", "2014"],
+      "yearsRunnerUp": ["2013"]
+  },{
+      "teamName": "Syracuse Nationals/Philadelphia 76ers",
+      "shortName": "76ers",
+      "yearsWon": ["1955", "1967", "1983"],
+      "yearsRunnerUp": ["1950", "1954", "1977", "1980", "1982", "2001"]
+  },{
+      "teamName": "Fort Wayne/Detroit Pistons",
+      "shortName": "Pistons",
+      "yearsWon": ["1989", "1990", "2004"],
+      "yearsRunnerUp": ["1955", "1956", "1988", "2005"]
+  },{
+      "teamName": "Miami Heat",
+      "shortName": "Heat",
+      "yearsWon": ["2006", "2012", "2013"],
+      "yearsRunnerUp": ["2011", "2014", "2020"]
+  },{
+      "teamName": "New York Knicks",
+      "shortName": "Knicks",
+      "yearsWon": ["1970", "1973"],
+      "yearsRunnerUp": ["1951", "1952", "1953", "1972", "1994", "1999"]
+  },{
+      "teamName": "Houston Rockets",
+      "shortName": "Rockets",
+      "yearsWon": ["1994", "1995"],
+      "yearsRunnerUp": ["1981", "1986"]
+  },{
+      "teamName": "Cleveland Cavaliers",
+      "shortName": "Cavaliers",
+      "yearsWon": ["2016"],
+      "yearsRunnerUp": ["2007", "2015", "2017", "2018"]
+  },{
+      "teamName": "St. Louis/Atlanta Hawks",
+      "shortName": "Hawks",
+      "yearsWon": ["1958"],
+      "yearsRunnerUp": ["1957", "1960", "1961"]
+  },{
+      "teamName": "Baltimore/Washington Bullets (now Washington Wizards)",
+      "shortName": "Bullets",
+      "yearsWon": ["1978"],
+      "yearsRunnerUp": ["1971", "1975", "1979"]
+  },{
+      "teamName": "Seattle SuperSonics/Oklahoma City Thunder",
+      "shortName": "Thunder",
+      "yearsWon": ["1979"],
+      "yearsRunnerUp": ["1978", "1996", "2012"]
+  },{
+      "teamName": "Portland Trail Blazers",
+      "shortName": "Blazers",
+      "yearsWon": ["1977"],
+      "yearsRunnerUp": ["1990", "1992"]
+  },{
+      "teamName": "Milwaukee Bucks",
+      "shortName": "Bucks",
+      "yearsWon": ["1971"],
+      "yearsRunnerUp": ["1974"]
+  },{
+      "teamName": "Dallas Mavericks",
+      "shortName": "Mavericks",
+      "yearsWon": ["2011"],
+      "yearsRunnerUp": ["2006"]
+  },{
+      "teamName": "Baltimore Bullets (original) (folded in 1954)",
+      "shortName": "Bullets",
+      "yearsWon": ["1948"],
+      "yearsRunnerUp": [""]
+  },{
+      "teamName": "Rochester Royals (now Sacramento Kings)",
+      "shortName": "Royals",
+      "yearsWon": ["1951"],
+      "yearsRunnerUp": [""]
+  },{
+      "teamName": "Toronto Raptors",
+      "shortName": "Raptors",
+      "yearsWon": ["2019"],
+      "yearsRunnerUp": [""]
+  },{
+      "teamName": "Phoenix Suns",
+      "shortName": "Suns",
+      "yearsWon": [],
+      "yearsRunnerUp": ["1976", "1993"]
+  },{
+      "teamName": "Utah Jazz (formerly New Orleans Jazz)",
+      "shortName": "Jazz",
+      "yearsWon": [],
+      "yearsRunnerUp": ["1997", "1998"]
+  },{
+      "teamName": "New Jersey Nets (now Brooklyn Nets)",
+      "shortName": "Nets",
+      "yearsWon": [],
+      "yearsRunnerUp": ["2002", "2003"]
+  },{
+      "teamName": "Orlando Magic",
+      "shortName": "Magic",
+      "yearsWon": [],
+      "yearsRunnerUp": ["1995", "2009"]
+  },{
+      "teamName": "Chicago Stags (folded in 1950)",
+      "shortName": "Stags",
+      "yearsWon": [],
+      "yearsRunnerUp": ["1947"]
+  },{
+      "teamName": "Washington Capitols (folded in 1951)",
+      "shortName": "Capitols",
+      "yearsWon": [],
+      "yearsRunnerUp": ["1949"]
+  },{
+      "teamName": "Indiana Pacers",
+      "shortName": "Pacers",
+      "yearsWon": [],
+      "yearsRunnerUp": ["2000"]
+  }
+]
