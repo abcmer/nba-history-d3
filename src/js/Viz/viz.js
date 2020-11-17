@@ -3,14 +3,13 @@ function Viz(options) {
 
   const initialize = (options) => { 
     d3.json("/data/teamData.json").then(function(data) {
-      // viz.titleCountsData = data;
-      viz.year = 2006  
+      viz.year = 2020  
       data = viz.filterOnYear(data, viz.year)  
       data = viz.filterForTitleTeams(data)  
       viz.defineSvgSize(options)
-      viz.defineGraphMargins()
+      viz.defineChartMargins()
       viz.addSvg()
-      viz.addGraphBackground()
+      viz.addChartBackground()
       viz.addLayers()
       viz.addZeroCoordinate()
       viz.titlesMax = viz.setTitlesMax(data)

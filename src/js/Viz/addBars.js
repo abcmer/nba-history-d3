@@ -4,6 +4,7 @@ Viz.prototype.addBars = (data) => {
     viz.layers.yAxisTicks[idx]
     .append('rect')
     .attr('y', -6)
+    .attr('x', 1)
     .attr('width', viz.titlesToPixelsScale(t.yearsWon.length))
     .attr('height', 15)
     .attr('rx', "3")

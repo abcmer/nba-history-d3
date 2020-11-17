@@ -1,7 +1,7 @@
-Viz.prototype.defineGraphMargins = (options) => {
+Viz.prototype.defineChartMargins = (options) => {
   let viz = this;
-  viz.graphMarginLeft = 120
-  viz.graphMarginRight = 40
-  viz.graphMarginUp = 20
-  viz.graphMarginDown = 200
+  viz.chartMarginLeft = 120
+  viz.chartMarginRight = 40
+  viz.chartMarginUp = 20
+  viz.chartMarginDown = 200
 }

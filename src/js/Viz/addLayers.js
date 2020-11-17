@@ -3,15 +3,15 @@ Viz.prototype.addLayers = () => {
   viz.layers = {};
   viz.layers.axis = viz.Viz.prototype.addGroup({
     'class': 'axis', 
-    'xOffset': viz.graphMarginLeft, 
-    'yOffset': viz.height - viz.graphMarginDown
+    'xOffset': viz.chartMarginLeft, 
+    'yOffset': viz.height - viz.chartMarginDown
   })
   viz.layers.xAxisTicks = {}
   viz.layers.yAxisTicks = {}
   viz.layers.yearSlider = viz.Viz.prototype.addGroup({
     'class': 'yearSlider',
-    'xOffset': viz.graphMarginLeft,
-    'yOffset': viz.height - (viz.graphMarginDown / 2)
+    'xOffset': viz.chartMarginLeft,
+    'yOffset': viz.height - (viz.chartMarginDown / 2)
   })
   return viz
 }
