@@ -1,5 +1,5 @@
 Viz.prototype.defineSvgSize = (options) => {
   let viz = this;
-  viz.width = options.width
-  viz.height = options.height
+  viz.width = window.innerWidth * .6
+  viz.height = window.innerHeight * .8
 }

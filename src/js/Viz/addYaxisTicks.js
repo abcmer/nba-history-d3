@@ -2,7 +2,7 @@ Viz.prototype.addYaxisTicks = (data) => {
   const viz = this;
   const teams = data.map(t => t.shortName)
   const teamIndexToPixels = d3.scaleLinear()
-    .domain([0,teams.length + 1])
+    .domain([0,teams.length + .5])
     .range([0,viz.height - viz.chartMarginUp - viz.chartMarginDown - 10])
 
   for (i=0; i < teams.length; i++ )   {
