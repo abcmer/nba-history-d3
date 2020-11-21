@@ -1,6 +1,6 @@
 const defineMobileProperties = (viz) => {
   viz.props = {
-    'barHeight': 60,
+    'barHeight': 50,
     'yTickFontSize': '1.2rem'
   }
 }
