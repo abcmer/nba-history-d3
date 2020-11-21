@@ -16,6 +16,7 @@ Viz.prototype.addYaxisTicks = (data) => {
       .text(teams[i])
       .attr('text-anchor', 'end')
       .attr('dominant-baseline', 'middle')
-      .attr('x', -5)      
+      .attr('x', -5)  
+      .attr('font-size', viz.props.yTickFontSize)    
   }
 }

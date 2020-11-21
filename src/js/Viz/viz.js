@@ -1,10 +1,13 @@
 function Viz(options) {
   const viz = this;
-  viz.year = 1947;
-  viz.autoPlay = true;
+  viz.year = 2020;
+  viz.autoPlay = false;
 
   const initialize = (options) => { 
     d3.json("/data/teamData.json").then(function(allData) {
+      viz.isMobile = false;
+      viz.checkForMobile()
+      viz.defineProperties()
       let filteredData;
       let sortedData;
       filteredData = viz.filterOnYear(allData, options.year)  

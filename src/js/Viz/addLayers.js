@@ -11,7 +11,7 @@ Viz.prototype.addLayers = () => {
   viz.layers.yearSlider = viz.Viz.prototype.addGroup({
     'class': 'yearSlider',
     'xOffset': viz.chartMarginLeft,
-    'yOffset': viz.height - (viz.chartMarginDown / 1.5)
+    'yOffset': viz.height - (viz.chartMarginDown / 2)
   })
   viz.layers.chartTitle = viz.Viz.prototype.addGroup({
     'class': 'chartTitle',
