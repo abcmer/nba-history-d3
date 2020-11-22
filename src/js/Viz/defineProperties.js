@@ -1,14 +1,29 @@
 const defineMobileProperties = (viz) => {
   viz.props = {
     'barHeight': 50,
-    'yTickFontSize': '1.2rem'
+    'yTickFontSize': '24',
+    'chartMarginLeft': 0,
+    'chartMarginRight': 0,
+    'chartMarginUp': 0,
+    'chartMarginDown': 200,
+    'chartTitleFontSize': '1.7rem',
+    'width': window.innerWidth,
+    'height': window.innerHeight
+
   }
 }
 
 const defineBrowserProperties = (viz) => {
   viz.props = {
-    'barHeight': 12,
-    'yTickFontSize': '1rem'
+    'barHeight': 25,
+    'yTickFontSize': '24',
+    'chartMarginLeft': 50,
+    'chartMarginRight': 200,
+    'chartMarginUp': 25,
+    'chartMarginDown': 150,
+    'chartTitleFontSize': '1.7rem',
+    'width': window.innerWidth,
+    'height': window.innerHeight       
   }
 }
 
@@ -20,4 +35,7 @@ Viz.prototype.defineProperties = () => {
   } else {
     defineBrowserProperties(viz)
   }
+  viz.props.chartWidth = (window.innerWidth - viz.props.chartMarginLeft - viz.props.chartMarginRight)
+  console.log('chartWidth', viz.props.chartWidth)
+
 }

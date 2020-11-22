@@ -8,6 +8,15 @@ Viz.prototype.addBars = (data) => {
     .attr('width', viz.titlesToPixelsScale(t.yearsWon.length))
     .attr('height', viz.props.barHeight)
     .attr('rx', "3")
-    .style('fill', '#1D4289')    
+    .style('fill', '#1D4289')   
+    
+    viz.layers.yAxisTicks[idx]
+      .append('text')
+      .text(t.shortName)
+      // .attr('text-anchor', 'end')
+      .attr('dominant-baseline', 'middle')
+      .attr('x', viz.titlesToPixelsScale(t.yearsWon.length) + 2)  
+      .attr('font-size', viz.props.yTickFontSize) 
+      .attr('fill', 'black')     
   })
 }

@@ -3,5 +3,5 @@ Viz.prototype.addChartTitle = () => {
   viz.layers.chartTitle
       .append('text')
       .text('NBA Championship Teams Over Time')
-      .attr('font-size', '1.7rem')
+      .attr('font-size', viz.props.chartTitleFontSize)
 }

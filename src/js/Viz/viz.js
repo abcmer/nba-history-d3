@@ -1,7 +1,7 @@
 function Viz(options) {
   const viz = this;
-  viz.year = 1947;
-  viz.autoPlay = true;
+  viz.year = 2020;
+  viz.autoPlay = false;
 
   const initialize = (options) => { 
     d3.json("/data/teamData.json").then(function(allData) {
@@ -13,8 +13,6 @@ function Viz(options) {
       filteredData = viz.filterForTitleTeams(filteredData)
       sortedData = viz.sortData(filteredData)
 
-      viz.defineSvgSize()
-      viz.defineChartMargins()
       viz.addSvg()    
       viz.addChartBackground()  
       viz.addLayers()      
@@ -44,7 +42,7 @@ function Viz(options) {
       if (viz.year < new Date().getFullYear()) {
         viz.year += 1
       } else {
-        window.setInterval()
+        window.clearInterval()
       }
       initialize({'year': viz.year})
      }    

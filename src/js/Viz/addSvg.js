@@ -6,7 +6,7 @@ Viz.prototype.addSvg = (options) => {
 
   viz.svg = d3.select("#container")
     .append("svg")
-    .attr("width",viz.width)
-    .attr("height",viz.height)
+    .attr("width",viz.props.width)
+    .attr("height",viz.props.height)
   return viz
 }
