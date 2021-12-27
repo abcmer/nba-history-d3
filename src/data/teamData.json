@@ -77,7 +77,7 @@
   },{
       "teamName": "Milwaukee Bucks",
       "shortName": "Bucks",
-      "yearsWon": ["1971"],
+      "yearsWon": ["1971", "2021"],
       "yearsRunnerUp": ["1974"]
   },{
       "teamName": "Dallas Mavericks",
@@ -103,7 +103,7 @@
       "teamName": "Phoenix Suns",
       "shortName": "Suns",
       "yearsWon": [],
-      "yearsRunnerUp": ["1976", "1993"]
+      "yearsRunnerUp": ["1976", "1993", "2021"]
   },{
       "teamName": "Utah Jazz (formerly New Orleans Jazz)",
       "shortName": "Jazz",
