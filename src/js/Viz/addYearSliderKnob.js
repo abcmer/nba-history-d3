@@ -1,4 +1,5 @@
 Viz.prototype.addYearSliderKnob = (options) => {
+  
   let viz = this;
   viz.layers.yearSliderKnob = viz.layers.yearSlider
     .append('g')

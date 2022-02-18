@@ -36,6 +36,5 @@ Viz.prototype.defineProperties = () => {
     defineBrowserProperties(viz)
   }
   viz.props.chartWidth = (window.innerWidth - viz.props.chartMarginLeft - viz.props.chartMarginRight)
-  console.log('chartWidth', viz.props.chartWidth)
 
 }
