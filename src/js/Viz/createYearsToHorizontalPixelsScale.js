@@ -3,5 +3,5 @@ Viz.prototype.createYearsToHorizontalPixelsScale = (options) => {
   let chartWidth = viz.props.chartWidth  
   viz.yearsToHorizontalPixelsScale = d3.scaleLinear()
     .domain([1947,2021])
-    .range([chartWidth * .1, chartWidth * .9 - 5])  
+    .range([10, chartWidth * .9 - 10])  
 }
