@@ -1,31 +1,34 @@
-# nba-history-d3
+# NBA History D3
 
-nba-history-d3 is a web-based vizual representation of the history of the NBA, developed using html, javascript, svg, and d3.
+An interactive NBA history visualization built with Next.js and D3.js.
 
-## Installation
+## Local Setup
 
-Clone this repo
-```
-git clone https://github.com/abcmer/nba-history-d3.git
-```
+1. Install dependencies:
 
-Change directory to nba-history-d3 and install dependencies
-
-```
-cd nba-history-d3
-npm i
+```bash
+npm install
 ```
 
-## Usage
+2. Run the development server:
 
-Start dev server
-```
-npm start
-```
-Build
-```
-npm run build
+```bash
+npm run dev
 ```
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
