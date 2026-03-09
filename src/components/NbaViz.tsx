@@ -25,8 +25,10 @@ interface VizProps {
 
 class Viz {
   year: number;
-  autoPlay: boolean;
+  isPlaying: boolean;
   isMobile: boolean;
+  allData: TeamData[];
+  _wasPlayingBeforeDrag: boolean;
   props!: VizProps;
   svg!: d3.Selection<SVGSVGElement, unknown, HTMLElement, unknown>;
   graphBackground!: d3.Selection<SVGRectElement, unknown, HTMLElement, unknown>;
@@ -43,11 +45,16 @@ class Viz {
     yearSliderKnob: d3.Selection<SVGGElement, unknown, HTMLElement, unknown>;
     chartTitle: d3.Selection<SVGGElement, unknown, HTMLElement, unknown>;
   };
+  onPlayPauseToggle?: () => void;
+  onDragStart?: () => void;
+  onDragEnd?: () => void;
 
   constructor() {
     this.year = 1947;
-    this.autoPlay = true;
+    this.isPlaying = true;
     this.isMobile = this.checkForMobile();
+    this.allData = [];
+    this._wasPlayingBeforeDrag = false;
   }
 
   checkForMobile(): boolean {
@@ -187,7 +194,7 @@ class Viz {
 
   createYearsToHorizontalPixelsScale(): void {
     this.yearsToHorizontalPixelsScale = d3.scaleLinear()
-      .domain([1947, 2021])
+      .domain([1947, 2025])
       .range([10, this.props.chartWidth * 0.9 - 10]);
   }
 
@@ -240,9 +247,10 @@ class Viz {
 
   addYaxisTicks(data: TeamData[]): void {
     const teams = data.map(t => t.shortName);
+    const chartHeight = this.props.height - this.props.chartMarginUp - this.props.chartMarginDown;
     const teamIndexToPixels = d3.scaleLinear()
       .domain([0, teams.length + 1])
-      .range([0, (this.props.height - this.props.chartMarginUp - this.props.chartMarginDown) * (teams.length / 20)]);
+      .range([0, chartHeight * Math.min(1, teams.length / 20)]);
 
     for (let i = 0; i < teams.length; i++) {
       this.layers.yAxisTicks[i] = this.layers.axis
@@ -252,7 +260,7 @@ class Viz {
     }
   }
 
-  addYearSlider(options: { year: number }): void {
+  addYearSlider(): void {
     this.layers.yearSlider
       .append('line')
       .attr('y1', 10)
@@ -298,6 +306,33 @@ class Viz {
       .style('stroke', 'black');
   }
 
+  getTeamColor(shortName: string): string {
+    const colors: Record<string, string> = {
+      Lakers:    '#552583', // purple
+      Celtics:   '#007A33', // green
+      Warriors:  '#FFC72C', // gold
+      Bulls:     '#CE1141', // red
+      Spurs:     '#000000', // black
+      '76ers':   '#006BB6', // blue
+      Pistons:   '#C8102E', // red
+      Heat:      '#98002E', // heat red
+      Knicks:    '#F58426', // orange
+      Rockets:   '#CE1141', // red
+      Cavaliers: '#6F263D', // wine
+      Hawks:     '#E03A3E', // red
+      Wizards:   '#002B5C', // navy
+      Thunder:   '#007AC1', // blue
+      Blazers:   '#E03A3E', // red
+      Bucks:     '#00471B', // green
+      Mavericks: '#00538C', // blue
+      Raptors:   '#CE1141', // red
+      Nuggets:   '#0E2240', // navy
+      Bullets:   '#000000', // black (historic team)
+      Royals:    '#5A2D81', // purple (became Sacramento Kings)
+    };
+    return colors[shortName] ?? '#000000';
+  }
+
   addBars(data: TeamData[]): void {
     data.forEach((t, idx) => {
       this.layers.yAxisTicks[idx]
@@ -307,7 +342,7 @@ class Viz {
         .attr('width', this.titlesToPixelsScale(t.yearsWon.length))
         .attr('height', this.props.barHeight)
         .attr('rx', '3')
-        .style('fill', '#1D4289');
+        .style('fill', this.getTeamColor(t.shortName));
 
       this.layers.yAxisTicks[idx]
         .append('text')
@@ -319,7 +354,79 @@ class Viz {
     });
   }
 
+  addPlayPauseButton(): void {
+    const self = this;
+    // Position inside the red box, bottom-left corner
+    const btnX = this.props.chartMarginLeft + 30;
+    const btnY = this.props.height - this.props.chartMarginDown / 2;
+
+    const btnGroup = this.svg
+      .append('g')
+      .attr('class', 'playPauseBtn')
+      .attr('transform', `translate(${btnX}, ${btnY})`)
+      .style('cursor', 'pointer')
+      .on('click', () => {
+        if (self.onPlayPauseToggle) self.onPlayPauseToggle();
+      });
+
+    btnGroup.append('rect')
+      .attr('x', -18)
+      .attr('y', -18)
+      .attr('width', 36)
+      .attr('height', 36)
+      .attr('rx', 4)
+      .style('fill', 'white')
+      .style('stroke', '#C40628')
+      .style('stroke-width', 2.5);
+
+    if (this.isPlaying) {
+      // Pause icon: two vertical bars
+      btnGroup.append('rect')
+        .attr('x', -9).attr('y', -10)
+        .attr('width', 7).attr('height', 20)
+        .style('fill', '#C40628');
+      btnGroup.append('rect')
+        .attr('x', 2).attr('y', -10)
+        .attr('width', 7).attr('height', 20)
+        .style('fill', '#C40628');
+    } else {
+      // Play icon: triangle
+      btnGroup.append('polygon')
+        .attr('points', '-7,-12 15,0 -7,12')
+        .style('fill', '#C40628');
+    }
+  }
+
+  addSliderDrag(): void {
+    const self = this;
+    const minX = this.yearsToHorizontalPixelsScale(1947);
+    const maxX = this.yearsToHorizontalPixelsScale(2025);
+
+    const drag = d3.drag<SVGGElement, unknown>()
+      .subject(() => ({ x: self.yearsToHorizontalPixelsScale(self.year), y: 0 }))
+      .on('start', () => {
+        if (self.onDragStart) self.onDragStart();
+        d3.select('.yearSliderKnob').style('cursor', 'grabbing');
+      })
+      .on('drag', (event) => {
+        const clampedX = Math.max(minX, Math.min(maxX, event.x));
+        const year = Math.round(self.yearsToHorizontalPixelsScale.invert(clampedX));
+        if (year !== self.year) {
+          self.year = year;
+          self.initialize(self.allData, year);
+        }
+      })
+      .on('end', () => {
+        if (self.onDragEnd) self.onDragEnd();
+      });
+
+    this.layers.yearSliderKnob
+      .style('cursor', 'grab')
+      .call(drag);
+  }
+
   initialize(allData: TeamData[], year: number): void {
+    this.allData = allData;
     this.isMobile = this.checkForMobile();
     this.defineProperties();
 
@@ -338,9 +445,11 @@ class Viz {
     this.addAxisLines();
     this.addXaxisTicks({ titlesMax: this.titlesMax });
     this.addYaxisTicks(sortedData);
-    this.addYearSlider({ year });
+    this.addYearSlider();
     this.addYearSliderKnob({ year });
     this.addBars(sortedData);
+    this.addPlayPauseButton();
+    this.addSliderDrag();
   }
 }
 
@@ -350,28 +459,63 @@ export default function NbaViz() {
   useEffect(() => {
     const viz = new Viz();
 
+    const stopInterval = () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+
+    const startInterval = () => {
+      stopInterval();
+      intervalRef.current = setInterval(() => {
+        if (viz.year < 2025) {
+          viz.year += 1;
+        } else {
+          stopInterval();
+          viz.isPlaying = false;
+          viz.initialize(viz.allData, viz.year);
+          return;
+        }
+        viz.initialize(viz.allData, viz.year);
+      }, 500);
+    };
+
+    viz.onPlayPauseToggle = () => {
+      viz.isPlaying = !viz.isPlaying;
+      if (viz.isPlaying) {
+        if (viz.year >= 2025) viz.year = 1947;
+        startInterval();
+      } else {
+        stopInterval();
+        viz.initialize(viz.allData, viz.year);
+      }
+    };
+
+    viz.onDragStart = () => {
+      viz._wasPlayingBeforeDrag = viz.isPlaying;
+      viz.isPlaying = false;
+      stopInterval();
+    };
+
+    viz.onDragEnd = () => {
+      if (viz._wasPlayingBeforeDrag && viz.year < 2025) {
+        viz.isPlaying = true;
+        startInterval();
+      } else {
+        viz.initialize(viz.allData, viz.year);
+      }
+    };
+
     fetch('/data/teamData.json')
       .then(res => res.json())
       .then((allData: TeamData[]) => {
         viz.initialize(allData, viz.year);
-
-        if (viz.autoPlay) {
-          intervalRef.current = setInterval(() => {
-            if (viz.year < 2021) {
-              viz.year += 1;
-            } else {
-              if (intervalRef.current) clearInterval(intervalRef.current);
-              return;
-            }
-            viz.initialize(allData, viz.year);
-          }, 500);
-        }
+        startInterval();
       })
       .catch(err => console.error(err));
 
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
+    return () => stopInterval();
   }, []);
 
   return null;

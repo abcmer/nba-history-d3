@@ -7,12 +7,12 @@
   },{
       "teamName": "Boston Celtics",
       "shortName": "Celtics",
-      "yearsWon": ["1957", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1968", "1969", "1974", "1976", "1981", "1984", "1986", "2008"],
-      "yearsRunnerUp": ["1958", "1985", "1987", "2010"]
+      "yearsWon": ["1957", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1968", "1969", "1974", "1976", "1981", "1984", "1986", "2008", "2024"],
+      "yearsRunnerUp": ["1958", "1985", "1987", "2010", "2022"]
   },{
       "teamName": "Philadelphia/San Francisco/Golden State Warriors",
       "shortName": "Warriors",
-      "yearsWon": ["1947", "1956", "1975", "2015", "2017", "2018"],
+      "yearsWon": ["1947", "1956", "1975", "2015", "2017", "2018", "2022"],
       "yearsRunnerUp": ["1948", "1964", "1967", "2016", "2019"]
   },{
       "teamName": "Chicago Bulls",
@@ -38,7 +38,7 @@
       "teamName": "Miami Heat",
       "shortName": "Heat",
       "yearsWon": ["2006", "2012", "2013"],
-      "yearsRunnerUp": ["2011", "2014", "2020"]
+      "yearsRunnerUp": ["2011", "2014", "2020", "2023"]
   },{
       "teamName": "New York Knicks",
       "shortName": "Knicks",
@@ -67,7 +67,7 @@
   },{
       "teamName": "Seattle SuperSonics/Oklahoma City Thunder",
       "shortName": "Thunder",
-      "yearsWon": ["1979"],
+      "yearsWon": ["1979", "2025"],
       "yearsRunnerUp": ["1978", "1996", "2012"]
   },{
       "teamName": "Portland Trail Blazers",
@@ -83,7 +83,7 @@
       "teamName": "Dallas Mavericks",
       "shortName": "Mavericks",
       "yearsWon": ["2011"],
-      "yearsRunnerUp": ["2006"]
+      "yearsRunnerUp": ["2006", "2024"]
   },{
       "teamName": "Baltimore Bullets (original) (folded in 1954)",
       "shortName": "Bullets",
@@ -133,6 +133,11 @@
       "teamName": "Indiana Pacers",
       "shortName": "Pacers",
       "yearsWon": [],
-      "yearsRunnerUp": ["2000"]
+      "yearsRunnerUp": ["2000", "2025"]
+  },{
+      "teamName": "Denver Nuggets",
+      "shortName": "Nuggets",
+      "yearsWon": ["2023"],
+      "yearsRunnerUp": []
   }
 ]
