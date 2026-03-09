@@ -187,7 +187,7 @@ class Viz {
 
   createYearsToHorizontalPixelsScale(): void {
     this.yearsToHorizontalPixelsScale = d3.scaleLinear()
-      .domain([1947, 2021])
+      .domain([1947, 2025])
       .range([10, this.props.chartWidth * 0.9 - 10]);
   }
 
@@ -357,7 +357,7 @@ export default function NbaViz() {
 
         if (viz.autoPlay) {
           intervalRef.current = setInterval(() => {
-            if (viz.year < 2021) {
+            if (viz.year < 2025) {
               viz.year += 1;
             } else {
               if (intervalRef.current) clearInterval(intervalRef.current);
