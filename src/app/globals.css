@@ -1,11 +1,12 @@
 /**
- * Base Styles (from original src/sass/components/_base.scss)
+ * Base Styles
  */
+html,
 body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
   font-size: 125%;
-  margin: 20px;
-  max-width: 42em;
-  width: 88%;
 }
 
 input,
@@ -13,4 +14,9 @@ textarea,
 select,
 button {
   font: inherit;
+}
+
+/* Prevent browser scroll/pan from hijacking SVG drag on touch devices */
+svg {
+  touch-action: none;
 }
